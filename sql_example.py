@@ -43,7 +43,6 @@ def sqlite3_data_read_db(data_base, table, column_name=None):
 
     if column_name is None:
         query = f'SELECT * FROM {table}'
-        # print(query)
         cur.execute(query)
         data = cur.fetchall()
     else:
@@ -55,7 +54,7 @@ def sqlite3_data_read_db(data_base, table, column_name=None):
             new_data.append(element[0])
 
         data = new_data
-        del (new_data)
+        del new_data
         cur.close()
         con.close()
     print_data_2d(columns_names, data)
@@ -105,3 +104,4 @@ sqlite3_data_read_db(data_base, table)
 # sqlite3_delete_table(data_base, table)
 # sqlite3_delete_record(data_base, table, id_column, record_id)
 sqlite3_update_record(data_base, table, id_column, record_id, param_column, param_val)
+
